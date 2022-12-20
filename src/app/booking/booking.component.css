@@ -1,0 +1,352 @@
+/* label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: larger; 
+}
+.form-control {
+    border: 1px solid rgb(250, 249, 249);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.book-now-form {
+  padding-top: 10px;  
+}
+.book-now-form .form-group {
+    margin-right: 1.5em;
+}
+.book-now-form label {
+    font-size: 13px;
+    display: block;
+    color: #fff;
+    padding-top: 10px;
+}
+.book-now-form .form-control {
+    height: 25px;
+    line-height: 25px;
+    background: white;
+    display: block;
+    font-size: 12px;
+    color: #969696;
+    padding: 4px 6px;
+}
+.book-now-form #start-date, .book-now-form #end-date {
+    padding-right: 20px;
+    background: url(https://www.solodev.com/assets/booking-form/icon_calendar.png) no-repeat scroll 98% center rgb(255, 255, 255);
+}
+@media (min-width: 992px) {
+  .book-now-form label {
+    float: left;
+    margin-right: 1em;
+    padding-top: 2px;
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .book-now-form .form-group {
+    margin-bottom: 0;
+    float: left;
+    margin-right: 1em;
+  }	
+  .book-now-form label {
+    float: left;
+    margin-right: 5px;
+    padding-top: 2px;
+    display: block;
+    padding-top:5px;
+  }
+  .book-now-form .form-control {
+    float: left;
+    width: 100px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+}
+@media (max-width: 768px) {
+  #navbar {
+    width: 100%;
+  }
+}
+.navbar-brand>img {
+  padding-top: 11px;
+  width: 130px;
+}
+.navbar-brand {
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+#navbar {
+  float: right;
+}
+.navbar {
+  background-color: 	#00bff3;
+}
+.navbar-default .navbar-toggle {
+  border-color: #fff;
+  color: #fff;
+}
+.navbar-collapse {
+  padding-right: 0px;
+}
+.btn-sm {
+    line-height: 1;
+}
+
+.ct-section_header {
+text-align: center;
+padding-top: 10px;
+/*padding: 100px 0 60px;*/
+/*padding: 5rem 0 6rem;
+}
+.ct-section_header h2 {
+font-size: 65px;
+font-size: 6.5rem;
+color: #291b07;
+font-family: 'nimbus-sans-condensed', sans-serif;
+font-weight: bold;
+margin-bottom: 0;
+}
+.ct-section_header-separator {
+background-color: #00bff3;
+height: 2px;
+height: 0.2rem;
+display: inline-block;
+max-width: 700px;
+width: 100%;
+}
+.ct-section_header-description {
+font-family: 'nimbus-sans-condensed', sans-serif;
+font-weight: bold;
+color: #291b07;
+font-size: 26px;
+font-size: 2.6rem;
+max-width: 750px;
+max-width: 75rem;
+display: inline-block;
+}
+.ct-u-color-white .ct-section_header h2,
+.ct-u-color-white .ct-section_header-description {
+color: inherit;
+}
+@media only screen and (max-width: 479px) {
+.ct-section_header {
+  padding: 50px 0 45px;
+  padding: 5rem 0 4.5rem;
+}
+.ct-section_header h2 {
+  font-size: 45px;
+  font-size: 4.5rem;
+}
+.ct-section_header-separator {
+  width: 140px;
+  width: 14rem;
+}
+.ct-section_header-description {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+}
+section.ct_icon_box_section .ct-icon_box.media .fa, .ct-icon_box.media .fa {
+    font-size: 50px;
+    color: #fff;
+    background-color: #00bff3;
+    border-radius: 50%;
+    padding: 12px;
+}
+.ct-icon_box.media {
+    margin-bottom: 35px;
+    padding: 20px 20px;
+} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Contact {
+  position: relative;
+  min-height: 110vh;
+  padding: 50px 100px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url('https://gizmodiva.com/wp-content/uploads/2017/10/SCOTT-A-WOODWARD_1SW1943-1170x689.jpg');
+  background-size: cover;
+}
+
+.Contact .Contactus {
+  max-width: 800px;
+  text-align: center;
+  margin-top: -190px;
+}
+
+.Contact .Contactus h2 {
+  font-size: 36px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.Contact .Contactus p {
+  font-weight: 500;
+  color: #fff;
+}
+
+.Container {
+  width: 100%;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.Container .ContactInfo {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Container .ContactInfo .Box {
+  position: relative;
+  padding: 20px;
+  display: flex;
+}
+
+.Container .ContactInfo .Box .Icon {
+  min-width: 60px;
+  height: 60px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  font-size: 22px;
+}
+
+.Container .ContactInfo .Box .Text {
+  display: flex;
+  margin-left: 20px;
+  font-size: 16px;
+  color: #fff;
+  flex-direction: column;
+  font-weight: 300;
+}
+
+.Container .ContactInfo .Box .Text h3 {
+  font-weight: 500;
+  color: #00bcd4;
+}
+
+.Form {
+  position: absolute;
+  top: 311px;
+  left: 900px;
+  transform: translate(-50%, -50%);
+  max-width: 550px;
+
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+.Form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #332902;
+  font-size: 35px;
+ 
+}
+
+.Form .input_field {
+  margin-bottom: 10px;
+}
+
+.Form .input_field input[type="text"],
+.Form textarea {
+  border: 1px solid#e0e0e0;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px
+}
+
+.Form textarea {
+  resize: none;
+  height: 80px;
+}
+
+.Form .btn input[type="submit"] {
+  border: 0px;
+  margin-top: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  background: #00bcd4;
+  color: #332902;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.red{
+  color: red;
+}
+select{
+  border: 1px solid#e0e0e0;
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.submit{
+  color: #ffff;
+  float: right;
+  background-color: #2b2278;
+  border-radius: 5px;
+  width: 120px;
+  height: 37px;
+
+}
+.back{
+  color: #ffff;
+  background-color: #2b2278;
+  border-radius: 5px;
+  width: 120px;
+  height: 37px;
+
+}
+.back:hover , .submit:hover{
+  background-color: rgb(52, 59, 66) 
+}
+.submit:disabled{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+.success
+{  color:rgb(14, 15, 14);
+  position: absolute;
+  top: 280px;
+  left: 900px;
+  transform: translate(-50%, -50%);
+  max-width: 750px;
+  background: rgb(229, 225, 225);
+  padding: 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  line-break: auto;
+}
