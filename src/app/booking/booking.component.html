@@ -1,127 +1,132 @@
-    <head>
-    <title>Financial Litercy</title>
+<head>
+   <title>Financial Litercy</title>
 
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="booking.component.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
+   <!-- Links -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="booking.component.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
 
 
-                <div class="Contact">
-                <div class="Contactus">                      
-                </div>
-                <div class="Container">
-                <div class="ContactInfo">
-                <div class="Box">
-                  <div class="Icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-                 <div class="Text">
-                 <h3>Address</h3>
-                 <p>9080 Enterprise,<br>Hyderabad<br>77040</p>
-             </div>
-            </div>            
-            <div class="Box">
-             <div class="Icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
-             <div class="Text">
-             <h3>Phone</h3>
-             <p>0712345678<br>OR<br>0733564906</p>
+               <div class="Contact">
+               <div class="Contactus">                      
+               </div>
+               <div class="Container">
+               <div class="ContactInfo">
+               <div class="Box">
+                 <div class="Icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                <div class="Text">
+                <h3>Address</h3>
+                <p>9080 Enterprise,<br>Hyderabad<br>77040</p>
             </div>
-            </div>        
-        <div class="Box">
-         <div class="Icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
-         <div class="Text">
-         <h3>Email</h3>
-         <p>travel.com</p>
-     </div>
-    </div>                      
+           </div>            
+           <div class="Box">
+            <div class="Icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+            <div class="Text">
+            <h3>Phone</h3>
+            <p>0712345678<br>OR<br>0733564906</p>
+           </div>
+           </div>        
+       <div class="Box">
+        <div class="Icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+        <div class="Text">
+        <h3>Email</h3>
+        <p>travel.com</p>
     </div>
-  
-
-    <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit(userForm)">
-      <div class="Form">
-    <h2><strong>CONFIRM BOOKINGS</strong></h2>
-    <!-- {{userForm.value | json}} -->
-      <div class="input_field">
-          <input type="text" placeholder="Enter your Name" required #name1="ngModel" name="Name" class="" ngModel  >
-      </div>
-      <small class="red" *ngIf = "name1.invalid && name1.touched">Name is required</small>
-      
-    
-      <div class="input_field">
-            <input type="text"  placeholder="Enter Number" required #phone2="ngModel" name="Phone" pattern="^\d{10}$" class=""
-            ngModel>
-      </div>
-      
-
-      <small class="red" *ngIf = "phone2.invalid && phone2.touched">Enter valid number</small>
-
-            <div class="input_field">
-               <input type="text" required #email1="ngModel" name="Email"  placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
-               ngModel>
-            </div>
-           
-
-         <small class="red" *ngIf = "email1.invalid && email1.touched">Email is required</small>
-  
-         <div class="input_field">
-               <select  (bur)="validateTopic(topic1.value)"(change)="validateTopic(topic1.value)" #topic1="ngModel"
-                 class="" name="payment mode" [(ngModel)]="userModel.payment" >
-                  <option value="default"> Select your  payment option : </option>
-                  <option  *ngFor="let topic1 of topics"> {{ topic1 }}</option>
-               </select>
-            </div>
-               <!-- <small class="red" *ngIf ="topic1.invalid && topic1.touched" >please choose payment</small> -->
-               <small class="red" *ngIf = "topicHasError && topic1.touched">please choose payment</small>
-           
-     
-         <div class="input_field">
-          <textarea placeholder="Message" id="message" ngModel></textarea>
-      </div>
-
-         <!-- <button [disabled]="userForm.form.invalid"
-         class="btn btn-primary" type="submit">submit form</button> -->
-
-            <div >
-               <button   class ="back" routerLink = "../place"> Back</button>
-               <button (click)="getdata(userForm.value)" [disabled] = " userForm.form.invalid || topicHasError" class ="submit" routerLink = "../home" >Submit</button>
-            </div> 
-         </div>
-   </form> 
-   <div  *ngIf="submitted" class="success">
-      <label>succesfully submitted</label>
-      <br>
-      <button class="back" (click)="calldata()" >Review details</button>
-      <div>
-         Name: {{store[store.length-1].Name}}
-         <br>
-         Phone Number: {{store[store.length-1].Phone}}
-         <br>
-         Email: {{store[store.length-1].Email}}
-      </div>
-
-      <!-- <ul  *ngFor="let items of store | keyvalue">
-         <ul *ngFor="let item of items | keyvalue">
-             <ul *ngFor="let i of item.value | keyvalue">
-                 <li>{{i.key}}:{{i.value}}</li>
-             </ul>     
-        </ul>
-      </ul> -->
+   </div>                      
    </div>
+ 
+
+   <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit(userForm)">
+     <div class="Form">
+   <h2><strong>CONFIRM BOOKINGS</strong></h2>
+   <!-- {{userForm.value | json}} -->
+     <div class="input_field">
+         <input type="text" placeholder="Enter your Name" required #name1="ngModel" name="Name" class="" ngModel  >
+     </div>
+     <small class="red" *ngIf = "name1.invalid && name1.touched">Name is required</small>
+     
    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
-    
-     
-    
+     <div class="input_field">
+           <input type="text"  placeholder="Enter Number" required #phone2="ngModel" name="Phone" pattern="^\d{10}$" class=""
+           ngModel>
+     </div>
      
 
+     <small class="red" *ngIf = "phone2.invalid && phone2.touched">Enter valid number</small>
 
+           <div class="input_field">
+              <input type="text" required #email1="ngModel" name="Email"  placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+              ngModel>
+           </div>
+          
+
+        <small class="red" *ngIf = "email1.invalid && email1.touched">Email is required</small>
+ 
+        <div class="input_field">
+              <select  (bur)="validateTopic(topic1.value)"(change)="validateTopic(topic1.value)" #topic1="ngModel"
+                class="" name="payments" [(ngModel)]="userModel.payment" >
+                 <option value="default"> Select your  payment option : </option>
+                 <option  *ngFor="let topic1 of topics"> {{ topic1 }}</option>
+              </select>
+           </div>
+              <!-- <small class="red" *ngIf ="topic1.invalid && topic1.touched" >please choose payment</small> -->
+              <small class="red" *ngIf = "topicHasError && topic1.touched">please choose payment</small>
+          
+    
+        <div class="input_field">
+         <textarea placeholder="Message" name="msg" #message="ngModel" id="message" ngModel></textarea>
+     </div>
+
+        <!-- <button [disabled]="userForm.form.invalid"
+        class="btn btn-primary" type="submit">submit form</button> -->
+
+           <div >
+              <button   class ="back" routerLink = "../place"> Back</button>
+              <button (click)="getdata(userForm.value)" [disabled] = " userForm.form.invalid || topicHasError" class ="submit" routerLink = "../home" >Submit</button>
+           </div> 
+        </div>
+  </form> 
+  <div  *ngIf="submitted" class="success">
+     <label>succesfully submitted</label>
+     <br>
+     <button class="back" (click)="calldata()" >Review details</button>
+     <div>
+        Name: {{store[store.length-1].Name}}
+        <br>
+        Phone Number: {{store[store.length-1].Phone}}
+        <br>
+        Email: {{store[store.length-1].Email}}
+         <br>
+        Payment Mode:{{store[store.length-1].payments}}
+        <br>
+        Message:{{store[store.length-1].msg}}
+        </div>
+       </div>
+
+     <!-- <ul  *ngFor="let items of store | keyvalue">
+        <ul *ngFor="let item of items | keyvalue">
+            <ul *ngFor="let i of item.value | keyvalue">
+                <li>{{i.key}}:{{i.value}}</li>
+            </ul>     
+       </ul>
+     </ul> -->
+  </div>
   
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+   
+    
+   
+    
+
+
+ 

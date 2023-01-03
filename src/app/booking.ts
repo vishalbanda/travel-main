@@ -4,6 +4,7 @@ export class User {
         public email : string,
         public phone1 : number,
         public payment : string,
+        public message :string
       
 
     )

@@ -16,7 +16,7 @@ export class BookingComponent implements OnInit {
   // name:any="vishal"
   // email:any;
   // phone1:number=9848377325;
-  userModel=new User( 'vishal','vishalbanda@gmail.com',1234567890,'default');
+  userModel=new User( 'vishal','vishalbanda@gmail.com',1234567890,'default','');
   
   topicHasError:boolean = false;
 
