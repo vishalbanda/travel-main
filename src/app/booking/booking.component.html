@@ -49,40 +49,45 @@
    <!-- {{userForm.value | json}} -->
      <div class="input_field">
          <input type="text" placeholder="Enter your Name" required #name1="ngModel" name="Name" class="" ngModel  >
+         <small class="red" *ngIf = "name1.invalid && name1.touched">Name is required</small>
      </div>
-     <small class="red" *ngIf = "name1.invalid && name1.touched">Name is required</small>
+     
      
    
      <div class="input_field">
            <input type="text"  placeholder="Enter Number" required #phone2="ngModel" name="Phone" pattern="^\d{10}$" class=""
            ngModel>
+           <small class="red" *ngIf = "phone2.invalid && phone2.touched">Enter valid number</small>
      </div>
      
 
-     <small class="red" *ngIf = "phone2.invalid && phone2.touched">Enter valid number</small>
+     
 
            <div class="input_field">
               <input type="text" required #email1="ngModel" name="Email"  placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
               ngModel>
+              <small class="red" *ngIf = "email1.invalid && email1.touched">Email is required</small>
            </div>
-          
-
-        <small class="red" *ngIf = "email1.invalid && email1.touched">Email is required</small>
- 
-        <div class="input_field">
-              <select  (bur)="validateTopic(topic1.value)"(change)="validateTopic(topic1.value)" #topic1="ngModel"
+           
+             <div class="input_field">
+               <select  (bur)="validateTopic(topic1.value)"(change)="validateTopic(topic1.value)" #topic1="ngModel"
                 class="" name="payments" [(ngModel)]="userModel.payment" >
-                 <option value="default"> Select your  payment option : </option>
+                 <option value="default" > Select your  payment option : </option>
                  <option  *ngFor="let topic1 of topics"> {{ topic1 }}</option>
-              </select>
-           </div>
+               </select>
+              <small class="red" *ngIf = "topicHasError && topic1.touched">Please Choose Payment</small>
+             </div>
               <!-- <small class="red" *ngIf ="topic1.invalid && topic1.touched" >please choose payment</small> -->
-              <small class="red" *ngIf = "topicHasError && topic1.touched">please choose payment</small>
-          
-    
+              <br>
+              <div>FROM:<input type="date"> TO:<input type="date">
+            </div>
+             <br>
+                 
         <div class="input_field">
-         <textarea placeholder="Message" name="msg" #message="ngModel" id="message" ngModel></textarea>
-     </div>
+         <textarea placeholder="Message" name="msg" required #message="ngModel" id="message" ngModel maxlength="255"></textarea>
+         <small class="red" *ngIf = "message.invalid && message.touched">Please Enter Related Note</small>
+       </div>
+      
 
         <!-- <button [disabled]="userForm.form.invalid"
         class="btn btn-primary" type="submit">submit form</button> -->
@@ -92,9 +97,9 @@
               <button (click)="getdata(userForm.value)" [disabled] = " userForm.form.invalid || topicHasError" class ="submit" routerLink = "../home" >Submit</button>
            </div> 
         </div>
-  </form> 
-  <div  *ngIf="submitted" class="success">
-     <label>succesfully submitted</label>
+    </form> 
+    <div  *ngIf="submitted" class="success">
+     <label>Succesfully Submitted</label>
      <br>
      <button class="back" (click)="calldata()" >Review details</button>
      <div>
@@ -117,7 +122,7 @@
             </ul>     
        </ul>
      </ul> -->
-  </div>
+     </div>
   
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

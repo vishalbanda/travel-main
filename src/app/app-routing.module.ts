@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PlaceComponent } from './place/place.component';
 import { PlayComponent } from './play/play.component';
+import { SubwayComponent } from './subway/subway.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   },        
   
   {path:'play',component:PlayComponent},
+  {path:'subplace',component:SubwayComponent}
  
 ];
 

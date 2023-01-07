@@ -291,3 +291,7 @@ h6 span{
 	width: auto;
 	display: block;
 }
+.red{
+  color: red;
+  position: relative;
+}
