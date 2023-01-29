@@ -381,3 +381,9 @@ padding-right: 33px;
   /* position:relative; */
   margin-top: 20px;
 }
+img{
+    height: 100px;
+    width: 100px;
+    border-radius: 70px;
+    margin-left: 6px;
+}

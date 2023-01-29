@@ -10,10 +10,12 @@ import { PlaceComponent } from './place/place.component';
 import { PlayComponent } from './play/play.component';
 import { SubwayComponent } from './subway/subway.component';
 import { GoaComponent } from './place/goa/goa.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path:'',component:HomeComponent},
   { path:'login',component:LoginComponent},
+  {path:'signup',component:SignupComponent},
   { path:'contact',component:ContactComponent},
   { path:'place',component:PlaceComponent,
   children: [

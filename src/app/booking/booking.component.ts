@@ -16,8 +16,7 @@ export class BookingComponent implements OnInit {
   // name:any="vishal"
   // email:any;
   // phone1:number=9848377325;
-  userModel=new User( 'vishal','vishalbanda@gmail.com',1234567890,'default','');
-  
+  userModel=new User('vishal','vishalbanda@gmail.com',1234567890,'default','','','');
   topicHasError:boolean = false;
 
  topics =[ 'Google pay','Phone pay','PayPal'];
@@ -40,7 +39,7 @@ export class BookingComponent implements OnInit {
  constructor(private http:HttpClient, private _userService: UserService){}
  
 getdata(postData:any){
-  this.http.post('https://travel-241cb-default-rtdb.firebaseio.com/user.json',postData).subscribe();
+  this.http.post('https://packup-34a17-default-rtdb.firebaseio.com/user.json',postData).subscribe();
 
   console.log(postData)
 //   let url='https://cooking-4ebd7-default-rtdb.firebaseio.com/users.json'
