@@ -4,7 +4,7 @@
 </a> -->
 <!-- {{userForm.value | json}} -->
 <!-- {{ signupobj.name.value | json}} -->
-<form [formGroup]="userForm">
+<form [formGroup]="userForm"  >
     
 <div class="section">
     <div class="container">
@@ -20,16 +20,16 @@
                             <div class="card-front">
 
                                 
-                                <div class="center-wrap">
+                                <div class="center-wrap" formGroupName="userlogin">
                                     <div class="section text-center">
                                         <h4 style="color: white" class="mb-4 pb-3">Log In</h4>
                                         <div class="form-group" >
-                                            <input type="text"  name="username"  formControlName ="username1" reqiured class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" >
+                                            <input type="text" formControlName ="username1"  class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" >
                                             <i class="input-icon uil uil-user"></i>
                                             <i class="input-icon uil uil-at"></i>
                                         </div>	
                                         <div class="form-group mt-2">
-                                            <input type="password" name="password" formControlName ="password1" required class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" >
+                                            <input type="password"  formControlName ="password1"  class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" >
                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
                                         
@@ -41,22 +41,25 @@
                                  </div>
                               
                        
-                            <div class="card-back">
+                            <div class="card-back" formGroupName="usersignup">
                                 <div class="center-wrap">
                                     <div class="section text-center">
                                         <h4 class="mb-4 pb-3" style="color:antiquewhite">Sign Up</h4>
                                         <div class="form-group">
-                                            <input type="text" name="username" formControlName ="username" required class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" required ngModel>
+                                            <input type="text" name="username" formControlName ="username"  class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" required ngModel>
                                             <i class="input-icon uil uil-user"></i>
                                         </div>	
-                                        <div class="form-group mt-2">
+                                        <!-- <div class="form-group mt-2">
                                             <input type="email" name="logemail"  formControlName = "email"    class="form-style" placeholder="Your Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="logemail" autocomplete="off" ngModel>
-                                            
-                                            
-                                            
-                                        </div>	
+                                           
+                                        </div>	 -->
                                         <div class="form-group mt-2">
-                                            <input type="password" name="logpass"  formControlName = "password" required class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" ngModel>
+                                            <input type="password" name="logpass"  formControlName = "password"  class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" ngModel>
+                                            <i class="input-icon uil uil-lock-alt"></i>
+                                        </div>
+
+                                        <div class="form-group mt-2">
+                                            <input type="Role" name="logpass"  formControlName ="role"  class="form-style" placeholder="Your Role" id="logpass" autocomplete="off" ngModel>
                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
                                         <button  class="btn mt-4"  (click)="OnSignUp()">SignUp</button>
