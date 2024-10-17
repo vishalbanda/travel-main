@@ -12,18 +12,22 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor() {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('authtoken');
-  debugger
-    // Clone the request to add the new header
-    const authReq = token ? req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const isAuthRequest = request.url.includes('/login') || request.url.includes('/register');
+    debugger
+    if (!isAuthRequest) {
+      // Get the token from local storage or a service
+      const token = localStorage.getItem('authToken');
+      
+      // Clone the request and add the authorization header if token exists
+      if (token) {
+        request = request.clone({
+          setHeaders: {
+            Authorization: `Bearer ${token}`
+          }
+        });
       }
-    }) : req;
-     console.log("interceptor being called");
-     
-    // Pass the cloned request with the header to the next handler
-    return next.handle(authReq);
+    }
+    return next.handle(request);
   }
 }

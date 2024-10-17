@@ -16,6 +16,10 @@ import { GoaComponent } from './place/goa/goa.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +38,14 @@ import { AuthInterceptor } from './auth.interceptor';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
+
   ],
   providers: [
    { provide: HTTP_INTERCEPTORS,

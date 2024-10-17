@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+
+import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -13,6 +16,7 @@ export class LoginComponent implements OnInit{
   userForm: FormGroup;
   UserSignUp:UserSignUp={
     username:'',
+    useremail:'',
     password: '',
     role:''
   };
@@ -22,11 +26,11 @@ export class LoginComponent implements OnInit{
   };
 
   sample:any
-  constructor(private auth:AuthService ,private fb:FormBuilder,private router:Router){
+  constructor(private auth:AuthService ,private fb:FormBuilder,private router:Router,private toastr: ToastrService){
     this.userForm= this.fb.group({
       usersignup: this.fb.group({
         username:['',Validators.required],
-        // email:['', [Validators.required, Validators.email]],
+        useremail:['', [Validators.required, Validators.email]],
         password:['',Validators.required],
         role:['',Validators.required]
       }),
@@ -60,21 +64,24 @@ export class LoginComponent implements OnInit{
 
 OnSignUp(){
   debugger
-  
+  this.toastr.success('Succesfully signed!');
   this.UserSignUp.username= this.userForm.get('usersignup.username')?.value;
+  this.UserSignUp.useremail= this.userForm.get('usersignup.useremail')?.value;
   this.UserSignUp.password= this.userForm.get('usersignup.password')?.value;
   this.UserSignUp.role= this.userForm.get('usersignup.role')?.value;
 
   this.auth.signup(this.UserSignUp).subscribe({
-      next:(res)=>
-      {alert(res.message)
-        this.userForm.reset();
-      },
-      error:(err)=>{
-        debugger
-        alert(err?.error.message)
-      }
-  })
+    next: (res) => {
+      console.log('Signup response:', res); 
+      alert('Signup successful!'); // Notify user of success
+      this.userForm.reset(); // Reset the form
+    },
+    error: (err) => {
+      console.error(err);
+      alert('Signup failed. Please try again.'); // Notify user of error
+    }
+  });
+  
   
 }
 
@@ -103,6 +110,7 @@ OnLogin(){
 export interface UserSignUp {
  
   username: string;
+  useremail:string;
   password: string;
   role: string;
 }
