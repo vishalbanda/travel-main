@@ -1,3 +1,4 @@
+
 <head>
   <title>Financial Litercy</title>
 
@@ -43,7 +44,7 @@
       <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit(userForm)">
 
         <div class="Form">
-          <h2><strong>CONFIRM BOOKINGS</strong></h2>
+          <h1><strong>CONFIRM BOOKINGS</strong></h1>
           <!-- {{userForm.value | json}} -->
           <div class="input_field">
             <input type="text" placeholder="Enter your Name" required #name1="ngModel" name="Name" class="" ngModel>
@@ -67,7 +68,7 @@
           <div class="input_field">
             <select (bur)="validateTopic(topic1.value)" (change)="validateTopic(topic1.value)" #topic1="ngModel"
               class="" name="payments" [(ngModel)]="userModel.payment">
-              <option value="default">Select your payment option</option>
+              <option value="default" style="color:rgb(24, 82, 133)" >Select your payment option</option>
               <option *ngFor="let topic1 of topics"> {{ topic1 }}</option>
             </select>
             <small class="red" *ngIf="topicHasError && topic1.touched">Please Choose Payment</small>
@@ -125,22 +126,4 @@
     </div>
   </div>
 </body>
-
-  <!-- <ul  *ngFor="let items of store | keyvalue">
-        <ul *ngFor="let item of items | keyvalue">
-            <ul *ngFor="let i of item.value | keyvalue">
-                <li>{{i.key}}:{{i.value}}</li>
-            </ul>     
-       </ul>
-     </ul> -->
-
-
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script> -->
+<app-profile-icon></app-profile-icon>

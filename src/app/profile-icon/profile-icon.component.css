@@ -1,0 +1,31 @@
+.profile-icon {
+    position: fixed; /* Relative position for the alert box */
+    width: 40px; /* Size of the icon */
+    height: 40px; /* Size of the icon */
+    background-color: #052446; /* Background color */
+    color: white; /* Text color */
+    border-radius: 50%; /* Make it circular */
+    display: flex; /* Center the text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    font-size: 20px; /* Font size for the initial */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    cursor: pointer; /* Change cursor to pointer */
+    right :40px;
+    top: 5px;
+  }
+  
+  .alert-box {
+    position: fixed; /* Position the alert box */
+    top: 50px; /* Position below the icon */
+    right: 0px; /* Center the alert box relative to the icon */
+    background-color: #fff; /* Background color */
+    border: 1px solid #ddd; /* Border for alert box */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding for alert box */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for alert box */
+    z-index: 1001; /* Make sure it appears above other content */
+    white-space: nowrap; /* Prevent wrapping */
+    width: fit-content;
+  }
+  

@@ -18,6 +18,9 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileIconComponent } from './profile-icon/profile-icon.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PlayComponent,
     SubwayComponent,
     GoaComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent,
+    ProfileIconComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatTooltipModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',

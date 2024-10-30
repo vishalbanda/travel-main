@@ -1,0 +1,28 @@
+<!-- <div class="profile-icon" (mouseenter)="fetchUserDetails()"
+     (mouseleave)="showDetails = false">
+    {{ getInitial() }}
+    <div class="tooltip" >
+        <strong>{{ Username }}</strong><br />
+        Email: {{ Email }}<br />
+        Role: {{ Role}}
+      </div>
+    
+  </div>
+
+  <div class="profile-icon" (mouseenter)="fetchUserDetails()" 
+  matTooltip="{{ Username}} | {{ Email }} | {{ Role}}" 
+  matTooltipPosition="below">
+    {{ getInitial() }}
+  </div>
+  -->
+
+  <div class="profile-icon" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    {{ getInitial() }}
+   
+  </div>
+  <div class="alert-box" *ngIf="showDetails">
+    <strong>{{ Username }}</strong><br />
+    <Strong>Email:</Strong> {{ Email }}<br />
+    <Strong>Role:</Strong> {{ Role }}
+  </div>
+ 

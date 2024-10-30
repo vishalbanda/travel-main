@@ -49,17 +49,20 @@
                                             <input type="text" name="username" formControlName ="username"  class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" required >
                                             <i class="input-icon uil uil-user"></i>
                                         </div>	
-                                        <div class="form-group mt-2">
+                                        <div class="form-group mt-3">
                                             <input type="email" name="logemail"  formControlName = "useremail"    class="form-style" placeholder="Your Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="logemail" autocomplete="off" >
-                                           
                                         </div>	
-                                        <div class="form-group mt-2">
-                                            <input type="password" name="logpass"  formControlName = "password"  class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" >
-                                            <i class="input-icon uil uil-lock-alt"></i>
+                                        <div class="form-group mt-3">
+                                             <input type="password" name="logpass"  formControlName = "password"  class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" > -->
+                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
 
-                                        <div class="form-group mt-2">
-                                            <input type="Role" name="logpass"  formControlName ="role"  class="form-style" placeholder="Your Role" id="logpass" autocomplete="off" >
+                                        <div class="form-group mt-0">
+                                            <select class="form-style" formControlName ="roleId"  >
+                                                <option value="" style="color:rgb(217, 223, 227)">Select Roles</option>
+                                                <option *ngFor="let topic1 of UserRoles" [value]="topic1.roleId"> {{ topic1.role }}</option>
+                                            </select> 
+                                            <!-- <input type="Role" name="logpass"  formControlName ="role"  class="form-style" placeholder="Your Role" id="logpass" autocomplete="off" > -->
                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
                                         <button  class="btn mt-4"  (click)="OnSignUp()">SignUp</button>

@@ -18,8 +18,10 @@ export class LoginComponent implements OnInit{
     username:'',
     useremail:'',
     password: '',
-    role:''
+    roleId:''
   };
+  UserRoles:UserRoles[]=[];
+
   Userlogin:UserLogin={
     username:'',
     password: ''
@@ -32,7 +34,7 @@ export class LoginComponent implements OnInit{
         username:['',Validators.required],
         useremail:['', [Validators.required, Validators.email]],
         password:['',Validators.required],
-        role:['',Validators.required]
+        roleId:[''  ,Validators.required]
       }),
       userlogin: this.fb.group({
         username1:['',Validators.required],
@@ -46,7 +48,17 @@ export class LoginComponent implements OnInit{
     
  ngOnInit():void
  {
- 
+   this.auth.GetRoles().subscribe(x=>{
+    console.log(x);
+    debugger
+    this.UserRoles = x; 
+    console.log(this.UserRoles);
+    
+    debugger
+    
+    
+   })
+
   // this.auth.setpagenavigationId().subscribe(value =>{
   //   this.sample = value
   //   debugger
@@ -68,13 +80,14 @@ OnSignUp(){
   this.UserSignUp.username= this.userForm.get('usersignup.username')?.value;
   this.UserSignUp.useremail= this.userForm.get('usersignup.useremail')?.value;
   this.UserSignUp.password= this.userForm.get('usersignup.password')?.value;
-  this.UserSignUp.role= this.userForm.get('usersignup.role')?.value;
+  this.UserSignUp.roleId= this.userForm.get('usersignup.roleId')?.value;
 
   this.auth.signup(this.UserSignUp).subscribe({
     next: (res) => {
       console.log('Signup response:', res); 
       alert('Signup successful!'); // Notify user of success
       this.userForm.reset(); // Reset the form
+      this.router.navigateByUrl('/Login');
     },
     error: (err) => {
       console.error(err);
@@ -87,7 +100,6 @@ OnSignUp(){
 
 
 OnLogin(){
-  debugger
  
   this.Userlogin.username= this.userForm.get('userlogin.username1')?.value;
   this.Userlogin.password= this.userForm.get('userlogin.password1')?.value;
@@ -95,10 +107,11 @@ OnLogin(){
   this.auth.login(this.Userlogin).subscribe({
     next:(res)=>{
       this.sample=res.token;
-      debugger
+      
       localStorage.setItem('authtoken',this.sample)
-      localStorage.setItem('role',res.userdetails.role)
-
+      localStorage.setItem('role',res.userdetails.roleName)
+      localStorage.setItem('UserName',res.userdetails.username)
+      localStorage.setItem('UserEmailId',res.userdetails.useremail)
       this.router.navigateByUrl('/play');
     },
 })
@@ -112,12 +125,17 @@ export interface UserSignUp {
   username: string;
   useremail:string;
   password: string;
-  role: string;
+  roleId: string;
 }
 export interface UserLogin {
  
   username: string;
   password: string;
+}
+export interface UserRoles {
+ 
+  roleId: string;
+  role: string;
 }
 
 
