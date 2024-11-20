@@ -30,7 +30,7 @@ export class ProfileIconComponent {
 
 
   fetchUserDetails() {
-    debugger
+    
     this.showDetails = true
     this.Username = localStorage.getItem('UserName');
     this.Email = localStorage.getItem('UserEmailId');

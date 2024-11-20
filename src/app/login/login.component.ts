@@ -5,6 +5,7 @@ import { AuthService } from '../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastService } from '../toast.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit{
   };
 
   sample:any
-  constructor(private auth:AuthService ,private fb:FormBuilder,private router:Router,private toastr: ToastrService){
+  constructor(private auth:AuthService ,private fb:FormBuilder,private router:Router,private toastr: ToastrService, private toastService: ToastService){
     this.userForm= this.fb.group({
       usersignup: this.fb.group({
         username:['',Validators.required],
@@ -41,8 +42,13 @@ export class LoginComponent implements OnInit{
         password1:['',Validators.required],
       })
     });
+     
+   
   }
- 
+  triggerToast(): void {
+    this.toastService.show('Data saved successfully!', 'Undo', 3000);
+  }
+  
 
  
     
@@ -50,11 +56,12 @@ export class LoginComponent implements OnInit{
  {
    this.auth.GetRoles().subscribe(x=>{
     console.log(x);
-    debugger
+    
     this.UserRoles = x; 
     console.log(this.UserRoles);
     
-    debugger
+    
+    
     
     
    })
@@ -75,7 +82,7 @@ export class LoginComponent implements OnInit{
 
 
 OnSignUp(){
-  debugger
+  
   this.toastr.success('Succesfully signed!');
   this.UserSignUp.username= this.userForm.get('usersignup.username')?.value;
   this.UserSignUp.useremail= this.userForm.get('usersignup.useremail')?.value;
@@ -85,13 +92,15 @@ OnSignUp(){
   this.auth.signup(this.UserSignUp).subscribe({
     next: (res) => {
       console.log('Signup response:', res); 
-      alert('Signup successful!'); // Notify user of success
+      //alert('Signup successful!'); // Notify user of success
       this.userForm.reset(); // Reset the form
       this.router.navigateByUrl('/Login');
+      this.toastService.show('SignUp successfully!', 'Undo', 2000);
+
     },
     error: (err) => {
       console.error(err);
-      alert('Signup failed. Please try again.'); // Notify user of error
+      this.toastService.showdanger('Signup Unsucessful!', 'Undo', 2000);
     }
   });
   
@@ -112,8 +121,14 @@ OnLogin(){
       localStorage.setItem('role',res.userdetails.roleName)
       localStorage.setItem('UserName',res.userdetails.username)
       localStorage.setItem('UserEmailId',res.userdetails.useremail)
+      this.toastService.show('Login Succesful!', 'Undo', 2000);
+
       this.router.navigateByUrl('/play');
     },
+    error: (err) => {
+      console.error(err);
+      this.toastService.showdanger('Login Unsuccesful!', 'Undo', 2000);
+    }
 })
 
 

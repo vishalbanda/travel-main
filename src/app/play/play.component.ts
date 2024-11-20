@@ -16,7 +16,7 @@ export class PlayComponent implements OnInit {
   {
     this.auth.setpagenavigationId().subscribe(value =>{
         this.sample = value
-        debugger
+        
         console.log(this.sample);})
 }
 
